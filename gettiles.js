@@ -122,9 +122,9 @@ function gtiles(host, gcat, gitem, gwidth, gheight) {
       var thumbsrc = baseurl + "cat=" + gcat + "&item=" + gitem + "&wid=" + thumb.width + "&hei=" + thumb.height + "&lev=" + thumb.level + "&cp=" + cp1 + "," + cp2 + "&oif=jpg";
 
       var nominalSizeInBytes = (exportWidth * exportHeight * 24) / 8;
-      var compressedSize = nominalSizeInBytes / 20;
+      var compressedSize = nominalSizeInBytes / 2;
       var exportURL = baseurl + "cat=" + gcat + "&item=" + gitem + "&wid=" + Math.ceil(exportWidth) + "&hei=" + Math.ceil(exportHeight) + "&lev=0&cp=" + cp1 + "," + cp2 + "&oif=sid";
-      document.getElementById('items').innerHTML += "<div id='item'><b>" + Math.ceil(exportWidth) + " x " + Math.ceil(exportHeight) + ", " + bytesToSize(compressedSize) + "</b><a href=\"" + exportURL + "\" target=\"export\"><img src='" + thumbsrc + "' alt='" + Math.ceil(exportWidth) + " x " + Math.ceil(exportHeight) + ", " + bytesToSize(nominalSizeInBytes) + "'></a></div>";
+      document.getElementById('items').innerHTML += "<div id='item'><b>" + Math.ceil(exportWidth) + " x " + Math.ceil(exportHeight) + ", raw: " + bytesToSize(nominalSizeInBytes) + "</b><a href=\"" + exportURL + "\" target=\"export\"><img src='" + thumbsrc + "' alt='" + Math.ceil(exportWidth) + " x " + Math.ceil(exportHeight) + ", " + bytesToSize(nominalSizeInBytes) + "'></a></div>";
       document.getElementById("extract").style.display = "block";
       map.removeLayer(drawnItems);
       console.log(exportURL);
